@@ -33,17 +33,17 @@ class SquareAnimationState extends State<SquareAnimation> {
 
   @override
   Widget build(BuildContext context) {
-    bool _isAnimating = false; // Add this to your State class
+    bool _isAnimating = false; 
     return Column(
       children: [
         AnimatedContainer(
           duration: Duration(seconds: 1),
           alignment: _alignment,
           onEnd: () {
-        setState(() {
-          _isAnimating = false; // Animation done, re-enable buttons
-        });
-      },
+            setState(() {
+              _isAnimating = false;
+            });
+          },
           child: Container(
             width: _squareSize,
             height: _squareSize,
@@ -57,30 +57,30 @@ class SquareAnimationState extends State<SquareAnimation> {
         Row(
           children: [
             ElevatedButton(
-              onPressed:_isAnimating
-              ? null
-              : () {
-                setState(() {
-                  _alignment = _alignment == Alignment.centerLeft
-                      ? Alignment.center
-                      : Alignment.centerLeft;
-                       _isAnimating = true;
-                });
-              },
+              onPressed: _isAnimating
+                  ? null
+                  : () {
+                      setState(() {
+                        _alignment = _alignment == Alignment.centerLeft
+                            ? Alignment.center
+                            : Alignment.centerLeft;
+                        _isAnimating = true;
+                      });
+                    },
               child: const Text('Left'),
             ),
             const SizedBox(width: 8),
             ElevatedButton(
-              onPressed:_isAnimating
-              ? null
-              : () {
-                setState(() {
-                  _alignment = _alignment == Alignment.centerRight
-                      ? Alignment.center
-                      : Alignment.centerRight;
-                      _isAnimating = true;
-                });
-              },
+              onPressed: _isAnimating
+                  ? null
+                  : () {
+                      setState(() {
+                        _alignment = _alignment == Alignment.centerRight
+                            ? Alignment.center
+                            : Alignment.centerRight;
+                        _isAnimating = true;
+                      });
+                    },
               child: const Text('Right'),
             ),
           ],
